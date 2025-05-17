@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Final Lab Task 2 - Transforming ER Model to Relational Tables</title>
+    <style>
+        /* General body and background setup */
+        body {
+            background-color: #121212;
+            background-image: url('https://i.gifer.com/5ARz.gif');  /* Replace with a valid image URL */
+            background-size: cover;
+            color: #e0e0e0;
+            font-family: 'Cooper Black', Britannic Bold;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-position: center;
+            background-attachment: fixed;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            text-align: center;  /* Centers the text for the entire body */
+        }
 
+        /* Header style */
+        header {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #00bcd4; /* Cyan color */
+            text-shadow: 0 0 20px rgba(0, 188, 212, 0.7);
+            margin: 0;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Navigation styling */
+        nav {
+            background-color: rgba(30, 30, 30, 0.9);
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        nav a {
+            color: #00bcd4;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 15px;
+            margin: 0 15px;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: rgba(0, 188, 212, 0.5);
+            color: white;
+            box-shadow: 0 0 15px rgba(0, 188, 212, 0.7);
+        }
+
+        /* Section styling */
+        .section {
+            padding: 50px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Ensures the section content is centered */
+            justify-content: center;
+        }
+
+        .box {
+            background-color: rgba(30, 30, 30, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 188, 212, 0.5);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease-in-out;
+            text-align: left;  /* Keeps the text inside the box left-aligned */
+            max-width: 800px;  /* Ensures the box doesn't stretch too wide */
+            width: 100%;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: rgba(30, 30, 30, 0.9);
+            color: #00bcd4;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer p {
+            font-size: 1.1em;
+            text-shadow: 0 0 8px rgba(0, 188, 212, 0.5);
+        }
+
+        /* Add smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Final Lab Task 2 - Transforming ER Model to Relational Tables</h1>
+</header>
+
+<nav>
+    <a href="#student">Student Table</a>
+    <a href="#assignment">Assignment Table</a>
+    <a href="#submission">Submission Table</a>
+    <a href="#er-diagram">ER Diagram</a>
+</nav>
+
+<!-- Student Table Section -->
+<section class="section" id="student">
+    <div class="box">
+        <h2>🔹 Student Table</h2>
+        <p><strong>Table Fields:</strong></p>
+        <ul>
+            <li>username: String (VARCHAR), up to 50 characters.</li>
+        </ul>
+        <h3>Query:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%202/Images/Student.png" alt="Student Table Query">
+        <h3>Table:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%202/Images/Student_tbl.png" alt="Student Table">
+    </div>
+</section>
+
+<!-- Assignment Table Section -->
+<section class="section" id="assignment">
+    <div class="box">
+        <h2>🔹 Assignment Table</h2>
+        <p><strong>Table Fields:</strong></p>
+        <ul>
+            <li>shortname: String (VARCHAR), up to 50 characters.</li>
+            <li>due_date: Date, cannot be null.</li>
+            <li>url: String (VARCHAR), up to 255 characters, can be null.</li>
+        </ul>
+        <h3>Query:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%202/Images/Assignment.png" alt="Assignment Table Query">
+        <h3>Table:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%202/Images/Assignment_tbl.png" alt="Assignment Table">
+    </div>
+</section>
+
+<!-- Submission Table Section -->
+<section class="section" id="submission">
+    <div class="box">
+        <h2>🔹 Submission Table</h2>
+        <p><strong>Table Fields:</strong></p>
+        <ul>
+            <li>username: String (VARCHAR), up to 50 characters.</li>
+            <li>shortname: String (VARCHAR), up to 50 characters.</li>
+            <li>version: Integer, represents the version of the submission.</li>
+            <li>submit_date: Date, cannot be null.</li>
+            <li>data: Text.</li>
+        </ul>
+        <h3>Query:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%202/Images/Submission.png" alt="Submission Table Query">
+        <h3>Table:</h3>
+        <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%202/Images/Submission_tbl.png" alt="Submission Table">
+    </div>
+</section>
+
+<!-- ER Diagram Section -->
+<section class="section" id="er-diagram">
+    <h2>🔗 ER Diagram</h2>
+    <img src="https://raw.githubusercontent.com/jrecapor/EDM-John-Paul/main/Final%20Task%202/Images/ErDiagram.jpeg" alt="ER Diagram" style="display:block; margin: 10px auto; max-width:90%; border-radius:12px; box-shadow: 0 0 20px #00ccff;">
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 John Paul Recapor. All rights reserved.</p>
+    <a href="https://github.com/jrecapor/EDM-John-Paul/tree/main/Final%20Task%202" target="_blank" style="color: #00bcd4; text-shadow: 0 0 6px #00bcd4;">View Final Lab Task 2 on GitHub</a>
+</footer>
+
+</body>
+</html>
